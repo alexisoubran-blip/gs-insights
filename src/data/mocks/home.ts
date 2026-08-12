@@ -51,32 +51,37 @@ export interface ProofCopy {
 
 export const homeFaq: FaqCopy = {
   eyebrow: "05 — PREGUNTAS",
-  title: "Antes de empezar",
+  title: "Lo que necesitas saber",
   items: [
+    {
+      question: "¿Qué es GS Insights?",
+      answer:
+        "GS Insights es una consultora senior de investigación de mercados en México con cobertura en Latinoamérica. Realizamos estudios cuantitativos y cualitativos para decisiones de mercado, consumidor, marca, comunicación y crecimiento.",
+    },
     {
       question: "¿En qué se diferencia GS Insights de una firma global?",
       answer:
-        "En el estándar, no hacemos concesiones: combinamos rigor metodológico, lectura cultural, analítica y traducción comercial. La diferencia está en el acceso directo al equipo senior que diseña el estudio, interpreta la evidencia y presenta la recomendación.",
+        "Ofrecemos rigor metodológico y experiencia senior con un proceso más directo. El equipo que diseña el estudio también supervisa la investigación, interpreta los resultados y presenta la recomendación.",
     },
     {
       question: "¿Qué tipo de decisiones investigan?",
       answer:
-        "Entrada a mercados, oportunidades de categoría, segmentación, posicionamiento, salud de marca, comunicación, innovación, experiencia y optimización de inversión. Si la decisión tiene implicaciones comerciales, construimos la evidencia alrededor de ella.",
+        "Ayudamos a evaluar mercados, oportunidades de categoría, segmentos, posicionamiento, salud de marca, conceptos, comunicación, innovación y decisiones de inversión.",
     },
     {
       question: "¿Trabajan con equipos internos y agencias?",
       answer:
-        "Sí. Podemos operar como socio directo de dirección, marketing, insights o innovación, y también integrarnos a una agencia creativa, de medios o relaciones públicas cuando la investigación necesita alimentar una estrategia mayor.",
+        "Sí. Trabajamos directamente con dirección, marketing, insights e innovación. También nos integramos con agencias creativas, de medios o relaciones públicas cuando la investigación forma parte de una estrategia más amplia.",
     },
     {
       question: "¿Cuánto dura un proyecto?",
       answer:
-        "Depende de la decisión y el método. Un sprint ejecutivo puede tomar de dos a cuatro semanas; un estudio multimercado o un sistema de tracking requiere una planeación mayor. La primera conversación sirve para definir alcance, calendario y nivel de evidencia necesario.",
+        "Un estudio ejecutivo puede tomar de dos a cuatro semanas. Los proyectos multimercado, segmentaciones o sistemas de tracking requieren más tiempo. Antes de comenzar definimos alcance, entregables, calendario e inversión.",
     },
     {
       question: "¿Cómo empieza una colaboración?",
       answer:
-        "Con una evaluación ejecutiva de 30 minutos. Revisamos qué está en juego, qué ya se sabe, qué falta probar y si somos el socio correcto. Si hay encaje, reciben una arquitectura de investigación y una propuesta a la medida.",
+        "Con una conversación de 30 minutos para entender qué necesitas decidir, qué información ya tienes y qué falta comprobar. Si existe encaje, presentamos alcance, metodología, tiempos e inversión.",
     },
   ],
 };
@@ -84,7 +89,7 @@ export const homeFaq: FaqCopy = {
 export const homeFooter: FooterCopy = {
   wordmark: "GS Insights",
   tagline:
-    "Investigación senior para decisiones de mercado con consecuencias reales.",
+    "Investigación de mercados para decidir con mayor certeza.",
   columns: [
     {
       heading: "Explorar",
@@ -98,17 +103,17 @@ export const homeFooter: FooterCopy = {
     {
       heading: "Capacidades",
       links: [
-        { label: "Mercado y oportunidad", href: "/#capacidades" },
-        { label: "Consumidor y cultura", href: "/#capacidades" },
+        { label: "Mercados y oportunidades", href: "/#capacidades" },
+        { label: "Consumidor y segmentación", href: "/#capacidades" },
         { label: "Marca y comunicación", href: "/#capacidades" },
-        { label: "Medición y experimentación", href: "/#capacidades" },
+        { label: "Medición y crecimiento", href: "/#capacidades" },
       ],
     },
     {
       heading: "Contacto",
       links: [
         {
-          label: "Evaluar una decisión",
+          label: "Cuéntanos tu proyecto",
           href: "/contacto",
         },
       ],
@@ -130,64 +135,64 @@ export const homeLoader: LoaderCopy = {
 
 export const homeProof: ProofCopy = {
   eyebrow: "04 — EVIDENCIA",
-  title: "Experiencia que ya movió negocio.",
+  title: "Experiencia aplicada a decisiones reales.",
   intro:
-    "La investigación importa cuando cambia una conversación, reduce riesgo o abre una oportunidad. Estos son algunos resultados construidos por el equipo a lo largo de más de una década en la industria.",
+    "Más de 10 años trabajando en investigación, estrategia, medición y crecimiento de marca en México y Latinoamérica.",
   disclosure:
     "Casos realizados por integrantes del equipo antes de la creación de GS Insights.",
   cases: [
     {
       brand: "Tajín",
       result: "800 consumidores · 4 mercados",
-      detail: "Validación internacional de oportunidad y lectura de mercado.",
+      detail: "Validación de una oportunidad en mercados internacionales.",
     },
     {
       brand: "FedEx",
       result: "Brand tracking regional",
-      detail: "Sistema de seguimiento para entender visibilidad y consideración.",
+      detail: "Seguimiento de visibilidad, consideración y desempeño de marca.",
     },
     {
       brand: "Takis",
       result: "Cultura de consumo",
-      detail: "Investigación cualitativa para revelar códigos y territorios relevantes.",
+      detail: "Investigación cualitativa para entender comportamientos y oportunidades de comunicación.",
     },
     {
       brand: "SharkNinja",
       result: "131.3M visualizaciones",
-      detail: "Insights convertidos en una activación de alto alcance.",
+      detail: "Insights aplicados a una activación de alto alcance.",
     },
     {
       brand: "Bitso",
       result: "+400% conversión",
-      detail: "Medición y optimización conectadas a impacto comercial.",
+      detail: "Medición y optimización orientadas a resultados comerciales.",
     },
   ],
-  capabilitiesEyebrow: "CAPACIDADES",
-  capabilitiesTitle: "Un sistema de inteligencia, no un catálogo de estudios.",
+  capabilitiesEyebrow: "SERVICIOS",
+  capabilitiesTitle: "Estudios diseñados alrededor de tu decisión.",
   capabilities: [
     {
       index: "01",
-      title: "Mercado y oportunidad",
+      title: "Mercados y oportunidades",
       detail:
-        "Sizing, entrada a mercado, paisaje competitivo, tendencias y white spaces.",
+        "Evalúa demanda, competencia, barreras y condiciones para entrar a un mercado o categoría.",
     },
     {
       index: "02",
-      title: "Consumidor y cultura",
+      title: "Consumidor y segmentación",
       detail:
-        "Segmentación, jobs to be done, etnografía, comunidades y social intelligence.",
+        "Entiende quién compra, qué necesita, cómo decide y qué diferencia a cada segmento.",
     },
     {
       index: "03",
       title: "Marca y comunicación",
       detail:
-        "Posicionamiento, equity, tracking, pruebas de concepto y efectividad creativa.",
+        "Mide posicionamiento y prueba conceptos, mensajes, campañas, productos o empaques.",
     },
     {
       index: "04",
-      title: "Medición y experimentación",
+      title: "Medición y crecimiento",
       detail:
-        "Frameworks de KPI, diseño de pruebas, incrementality y optimización continua.",
+        "Detecta qué funciona, qué frena los resultados y dónde conviene invertir.",
     },
   ],
 };

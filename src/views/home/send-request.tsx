@@ -37,7 +37,7 @@ export const SendRequest = () => {
         style={style}
         className="flex items-center justify-center px-[4.167vw] py-[1.111vw] font-general text-[1.111vw] leading-[1.2] font-medium max-lg:grow max-lg:px-[1.5rem] max-lg:py-[0.9375rem] max-lg:text-[1rem]"
       >
-        Evaluar una decisión
+        Cuéntanos tu proyecto
       </animated.span>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

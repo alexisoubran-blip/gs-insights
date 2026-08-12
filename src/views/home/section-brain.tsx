@@ -26,11 +26,11 @@ import { SendRequest } from "./send-request";
  * about anyway.
  */
 
-const TITLE_LEFT = "Del dato a la señal.";
-const TITLE_RIGHT = "De la señal a la decisión.";
+const TITLE_LEFT = "Hacemos la investigación.";
+const TITLE_RIGHT = "Te ayudamos a decidir.";
 const TAGLINE_LEFT =
-  "Cuantitativo, cualitativo, social intelligence y performance conectados.";
-const TAGLINE_RIGHT = "ACCESO DIRECTO AL EQUIPO SENIOR";
+  "Diseño, levantamiento, control de calidad, análisis y presentación ejecutiva.";
+const TAGLINE_RIGHT = "UN MISMO EQUIPO DE PRINCIPIO A FIN";
 
 export const SectionBrain = () => {
   const clock = useSceneClock();
