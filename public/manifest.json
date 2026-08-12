@@ -1,0 +1,16 @@
+{
+ "name": "GS Insights — Inteligencia de mercado",
+ "icons": [
+  {
+   "src": "/icon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml"
+  }
+ ],
+ "short_name": "GS Insights",
+ "start_url": "/",
+ "display": "standalone",
+ "background_color": "#050509",
+ "theme_color": "#050509",
+ "lang": "es-MX"
+}
