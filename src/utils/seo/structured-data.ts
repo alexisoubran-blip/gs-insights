@@ -22,6 +22,41 @@ export function getSiteStructuredData() {
         name: "GS Insights",
         url: siteConfig.url,
         logo: `${siteConfig.url}/icon.svg`,
+        description: siteConfig.description,
+        areaServed: ["México", "Latinoamérica"],
+        knowsAbout: [
+          "Investigación de mercados",
+          "Consumer insights",
+          "Investigación cuantitativa",
+          "Investigación cualitativa",
+          "Brand tracking",
+          "Pruebas de concepto",
+          "Segmentación de consumidores",
+          "Entrada a mercado",
+        ],
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `${siteConfig.url}/#service`,
+        name: "GS Insights",
+        url: siteConfig.url,
+        description:
+          "Consultora senior de investigación de mercados en México con cobertura en Latinoamérica.",
+        areaServed: ["México", "Latinoamérica"],
+        provider: { "@id": `${siteConfig.url}/#organization` },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Servicios de investigación de mercados",
+          itemListElement: [
+            "Mercados y oportunidades",
+            "Consumidor y segmentación",
+            "Marca y comunicación",
+            "Medición y crecimiento",
+          ].map((name) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name },
+          })),
+        },
       },
       {
         "@type": "WebSite",

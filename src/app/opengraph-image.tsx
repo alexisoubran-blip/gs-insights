@@ -35,7 +35,7 @@ export default function OpenGraphImage() {
               maxWidth: 940,
             }}
           >
-            Decisiones que no admiten intuición.
+            Decide con mayor certeza.
           </div>
           <div style={{ color: "#a8acb8", display: "flex", fontSize: 25 }}>
             Inteligencia de mercado senior · México + LATAM

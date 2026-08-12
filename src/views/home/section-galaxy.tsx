@@ -21,9 +21,9 @@ import { LETTER_REVEAL, WORD_REVEAL } from "./reveal";
  * a single column on phones, with the copy stacked above it.
  */
 
-const TITLE = "Capacidad enterprise. Sin la estructura enterprise.";
+const TITLE = "Experiencia senior. Trato directo.";
 const SUPPORT =
-  "Diseñamos cada estudio alrededor de la decisión, no del entregable. Rigor metodológico, agilidad operativa y lectura comercial en una misma mesa.";
+  "El mismo equipo define el estudio, supervisa la investigación, analiza los resultados y presenta la recomendación.";
 
 /** `value` / `label` / `left` (Figma x ÷14.4 — the desktop offset only). */
 const STATS = [

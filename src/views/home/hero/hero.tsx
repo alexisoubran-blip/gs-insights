@@ -30,12 +30,12 @@ import { SendRequest } from "../send-request";
  * an **inline** style, so only `position: static !important` can beat it.
  */
 
-const TITLE = "Decisiones que no admiten intuición.";
+const TITLE = "Decide con mayor certeza.";
 const TAGLINE =
-  "Investigación senior para marcas que necesitan ver antes de que el mercado se mueva.";
+  "Investigación de mercados para reducir riesgos antes de invertir.";
 const SUPPORT =
-  "La sofisticación analítica de una gran red, con acceso directo al equipo que piensa, investiga y traduce la evidencia.";
-const TAGS = ["[ ESTRATEGIA ]", "[ CONSUMER INSIGHTS ]", "[ MEDICIÓN ]"];
+  "El rigor y las metodologías de una gran consultora, con especialistas senior involucrados de principio a fin.";
+const TAGS = ["[ MERCADO ]", "[ CONSUMIDOR ]", "[ MARCA ]"];
 
 export interface HeroProps {
   /** Flips true once the loader curtain lifts — gates the reveal. */

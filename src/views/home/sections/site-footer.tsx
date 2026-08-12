@@ -22,7 +22,7 @@ export const SiteFooter = ({ copy }: SiteFooterProps) => {
       className="w-full pt-[6vw] text-white max-lg:px-[1.5rem] max-lg:pt-[5rem] max-sm:px-[1.25rem]"
     >
       <p className="text-center font-tag text-[0.833vw] tracking-[0.08em] text-white/60 uppercase max-lg:text-[0.75rem]">
-        CAPACIDAD SELECTIVA · MÉXICO + LATAM
+        INVESTIGACIÓN SENIOR · MÉXICO + LATINOAMÉRICA
       </p>
       <TextEngine
         tag="h2"
@@ -30,7 +30,7 @@ export const SiteFooter = ({ copy }: SiteFooterProps) => {
         {...LETTER_REVEAL}
         className="mx-auto mt-[1.25vw] max-w-[70vw] justify-center text-center font-general text-[5vw] leading-[0.94] font-light max-lg:mt-[1rem] max-lg:max-w-none max-lg:text-[3rem] max-sm:text-[2.25rem]"
       >
-        La próxima gran decisión merece evidencia a la altura.
+        Antes de invertir, comprueba qué está viendo el mercado.
       </TextEngine>
 
       <TextEngine
@@ -40,8 +40,8 @@ export const SiteFooter = ({ copy }: SiteFooterProps) => {
         {...WORD_REVEAL}
         className="mx-auto mt-[1.8vw] max-w-[38vw] justify-center text-center font-general text-[1.111vw] leading-[1.4] text-white/70 max-lg:mt-[1.25rem] max-lg:max-w-[34rem] max-lg:text-[0.9375rem]"
       >
-        Cuéntenos qué está en juego. En 30 minutos evaluamos la decisión, el nivel
-        de evidencia necesario y si somos el socio correcto.
+        Cuéntanos qué necesitas decidir. En 30 minutos revisamos el reto, la
+        información disponible y el estudio que tendría sentido realizar.
       </TextEngine>
 
       <Inview
@@ -58,7 +58,7 @@ export const SiteFooter = ({ copy }: SiteFooterProps) => {
           interaction={GHOST_SIGNAL}
           className="flex items-center gap-[0.75vw] border px-[2vw] py-[1vw] font-general text-[1.111vw] leading-[1.2] max-lg:gap-[0.5rem] max-lg:px-[1.5rem] max-lg:py-[0.9375rem] max-lg:text-[1rem]"
         >
-          Evaluar una decisión
+          Cuéntanos tu proyecto
           <span aria-hidden className="block size-[0.1875rem] bg-current" />
         </PressableLink>
       </Inview>

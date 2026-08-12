@@ -7,9 +7,9 @@
 import { publicEnv } from "@/env";
 
 export const siteConfig = {
-  name: "GS Insights — Inteligencia de mercado para decisiones de negocio",
+  name: "GS Insights | Investigación de mercados en México y Latinoamérica",
   description:
-    "Investigación de mercados senior para marcas en México y LATAM. Estrategia, consumer insights, medición y experimentación sin capas innecesarias.",
+    "Consultora senior de investigación de mercados. Estudios de consumidor, marca, comunicación y oportunidades en México y Latinoamérica.",
   /**
    * Public origin, no trailing slash. Drives canonical URLs, OG tags, the
    * sitemap, and JSON-LD. Set `NEXT_PUBLIC_SITE_URL` in production.
