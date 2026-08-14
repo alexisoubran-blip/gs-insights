@@ -14,6 +14,7 @@ import {
   type FaqItem,
   type ServicePage,
 } from "@/data/site-content";
+import type { ResourceArticle } from "@/data/resource-content";
 
 const organizationId = `${siteConfig.url}/#organization`;
 
@@ -95,6 +96,21 @@ export function getCaseStructuredData(page: CaseStudy) {
     author: { "@type": "Person", name: "TODO_AUTHOR_REAL" },
     publisher: { "@id": organizationId },
     about: page.brand,
+  };
+}
+
+export function getResourceStructuredData(article: ResourceArticle) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.description,
+    url: `${siteConfig.url}${article.path}`,
+    inLanguage: article.locale === "es" ? "es-MX" : "en",
+    author: { "@type": "Person", name: article.author },
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    publisher: { "@id": organizationId },
   };
 }
 

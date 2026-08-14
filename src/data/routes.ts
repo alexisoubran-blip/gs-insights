@@ -26,6 +26,10 @@ export const spanishRoutes = [
   { path: "/contacto", lastModified: "2026-08-14" },
   { path: "/preguntas-frecuentes", lastModified: "2026-08-14" },
   { path: "/recursos", lastModified: "2026-08-14" },
+  { path: "/recursos/cuanto-cuesta-un-estudio-de-mercado-en-mexico", lastModified: "2026-08-14" },
+  { path: "/recursos/tamano-de-muestra-para-segmentacion-latam", lastModified: "2026-08-14" },
+  { path: "/recursos/costos-de-panel-online-mexico-brasil-colombia", lastModified: "2026-08-14" },
+  { path: "/recursos/como-elegir-una-agencia-de-investigacion-de-mercados", lastModified: "2026-08-14" },
 ] as const;
 
 export const englishRoutes = [
@@ -46,6 +50,10 @@ export const englishRoutes = [
   "/en/contact",
   "/en/frequently-asked-questions",
   "/en/resources",
+  "/en/resources/how-much-does-market-research-cost-in-mexico",
+  "/en/resources/sample-size-for-segmentation-latam",
+  "/en/resources/online-panel-costs-mexico-brazil-colombia",
+  "/en/resources/how-to-choose-a-market-research-agency",
 ].map((path) => ({ path, lastModified: "2026-08-14" })) as ReadonlyArray<{
   path: string;
   lastModified: string;

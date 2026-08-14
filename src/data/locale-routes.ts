@@ -16,6 +16,10 @@ export const localeRoutePairs = [
   ["/contacto", "/en/contact"],
   ["/preguntas-frecuentes", "/en/frequently-asked-questions"],
   ["/recursos", "/en/resources"],
+  ["/recursos/cuanto-cuesta-un-estudio-de-mercado-en-mexico", "/en/resources/how-much-does-market-research-cost-in-mexico"],
+  ["/recursos/tamano-de-muestra-para-segmentacion-latam", "/en/resources/sample-size-for-segmentation-latam"],
+  ["/recursos/costos-de-panel-online-mexico-brasil-colombia", "/en/resources/online-panel-costs-mexico-brazil-colombia"],
+  ["/recursos/como-elegir-una-agencia-de-investigacion-de-mercados", "/en/resources/how-to-choose-a-market-research-agency"],
 ] as const;
 
 export function languageAlternates(path: string) {

@@ -13,10 +13,12 @@ import { generateMetadata as buildMetadata } from "@/utils/seo/generate-page-met
 import { ContentPageView } from "@/views/content-page";
 import { siteConfig } from "@/lib/site";
 import { languageAlternates } from "@/data/locale-routes";
+import { spanishResources } from "@/data/resource-content";
 import {
   getCaseStructuredData,
   getFaqStructuredData,
   getPeopleStructuredData,
+  getResourceStructuredData,
   getServiceStructuredData,
 } from "@/utils/seo/structured-data";
 
@@ -29,6 +31,8 @@ function getMeta(path: string) {
   if (service) return { title: service.title, description: service.description };
   const caseStudy = spanishCases.find((item) => item.path === path);
   if (caseStudy) return { title: caseStudy.title, description: caseStudy.summary };
+  const resource = spanishResources.find((item) => item.path === path);
+  if (resource) return { title: resource.title, description: resource.description };
   if (path === "/metodologia") return { title: methodologyPage.title, description: methodologyPage.description };
   if (path === "/casos") return { title: "Casos de investigación de mercados", description: "Experiencia del equipo en investigación, estrategia, medición y activación para marcas en México y Latinoamérica." };
   if (path === "/nosotros") return { title: "Equipo senior de GS Insights", description: "Conoce al equipo fundador de la consultora de investigación de mercados GS Insights." };
@@ -39,7 +43,7 @@ function getMeta(path: string) {
 }
 
 export function generateStaticParams() {
-  return spanishStaticPaths.map((path) => ({ slug: path.slice(1).split("/") }));
+  return [...spanishStaticPaths, ...spanishResources.map((item) => item.path)].map((path) => ({ slug: path.slice(1).split("/") }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -51,9 +55,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ContentPage({ params }: PageProps) {
   const path = resolvePath((await params).slug);
-  if (!spanishStaticPaths.includes(path)) notFound();
+  if (![...spanishStaticPaths, ...spanishResources.map((item) => item.path)].includes(path)) notFound();
   const service = spanishServices.find((item) => item.path === path);
   const caseStudy = spanishCases.find((item) => item.path === path);
+  const resource = spanishResources.find((item) => item.path === path);
   const structuredData = service
     ? getServiceStructuredData(service)
     : caseStudy
@@ -62,7 +67,9 @@ export default async function ContentPage({ params }: PageProps) {
         ? getPeopleStructuredData()
         : path === "/preguntas-frecuentes"
           ? getFaqStructuredData(spanishFaqs)
-          : null;
+          : resource
+            ? getResourceStructuredData(resource)
+            : null;
 
   return (
     <>

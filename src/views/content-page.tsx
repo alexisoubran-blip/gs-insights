@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { spanishResources, type ResourceArticle } from "@/data/resource-content";
 
 import {
   contactDetails,
@@ -198,12 +199,19 @@ function ResourcesView() {
     <PageShell eyebrow="RECURSOS" title="Guías de investigación de mercados para México y LATAM" description="Próximamente: referencias prácticas sobre costos, muestras, paneles y selección de una agencia de investigación.">
       <section className={sectionClass}>
         <p className="max-w-[48rem] text-[1.125rem] leading-[1.7] text-white/70">La estructura editorial está lista. Los artículos y sus tablas se publicarán con datos verificables, fuente, fecha y metodología; no incluimos rangos ni benchmarks sin evidencia.</p>
+        <ul className="mt-[2rem] grid grid-cols-2 gap-[1rem] max-md:grid-cols-1">{spanishResources.map((article) => <li key={article.path} className="border border-white/15 p-[1.5rem]"><h2 className="text-[1.5rem] font-light">{article.title}</h2><p className="mt-[0.75rem] text-white/65">{article.description}</p><Link href={article.path} className="mt-[1rem] inline-block border-b border-signal">Ver estructura</Link></li>)}</ul>
       </section>
     </PageShell>
   );
 }
 
+function ResourceArticleView({ article }: { article: ResourceArticle }) {
+  return <PageShell eyebrow="RECURSO · BORRADOR" title={article.title} description={article.description}><AnswerFirst paragraphs={[article.directAnswer]} /><section className={sectionClass}><h2 className="text-[clamp(2rem,4vw,4rem)] font-light">Esquema editorial</h2><div className="mt-[2rem] grid gap-[1rem]">{article.outline.map((section) => <section key={section.heading} className="border border-white/15 p-[1.5rem]"><h2 className="text-[1.5rem] font-light">{section.heading}</h2><p className="mt-[0.75rem] text-signal">{section.guidance}</p></section>)}</div></section><section className={sectionClass}><h2 className="text-[clamp(2rem,4vw,4rem)] font-light">Tabla de datos</h2><div className="mt-[2rem] overflow-x-auto"><table className="w-full min-w-[48rem] border-collapse"><caption className="mb-[1rem] text-left text-white/60">{article.table.caption}</caption><thead><tr>{article.table.columns.map((column) => <th key={column} className="border border-white/20 bg-white/10 p-[0.75rem] text-left">{column}</th>)}</tr></thead><tbody>{article.table.rows.map((row, index) => <tr key={`${article.path}-${index}`}>{row.map((cell, cellIndex) => <td key={`${cell}-${cellIndex}`} className="border border-white/20 p-[0.75rem] text-white/70">{cell}</td>)}</tr>)}</tbody></table></div></section><FaqList items={article.faqs} /></PageShell>;
+}
+
 export function ContentPageView({ path }: { path: string }) {
+  const resource = spanishResources.find((item) => item.path === path);
+  if (resource) return <ResourceArticleView article={resource} />;
   const service = spanishServices.find((item) => item.path === path);
   if (service) return <ServiceView page={service} />;
   const caseStudy = spanishCases.find((item) => item.path === path);

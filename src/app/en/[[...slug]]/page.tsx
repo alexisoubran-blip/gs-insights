@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import { StructuredData } from "@/components/seo/structured-data";
 import { englishCases, englishFaqs, englishMethodology, englishServices, englishStaticPaths } from "@/data/english-content";
 import { languageAlternates } from "@/data/locale-routes";
+import { englishResources } from "@/data/resource-content";
 import { siteConfig } from "@/lib/site";
 import { generateMetadata as buildMetadata } from "@/utils/seo/generate-page-metadata";
-import { getCaseStructuredData, getFaqStructuredData, getPeopleStructuredData, getServiceStructuredData } from "@/utils/seo/structured-data";
+import { getCaseStructuredData, getFaqStructuredData, getPeopleStructuredData, getResourceStructuredData, getServiceStructuredData } from "@/utils/seo/structured-data";
 import { EnglishPageView } from "@/views/english-page";
 
 type Props = { params: Promise<{ slug?: string[] }> };
@@ -17,6 +18,8 @@ function getMeta(path: string) {
   if (service) return { title: service.title, description: service.description };
   const caseStudy = englishCases.find((item) => item.path === path);
   if (caseStudy) return { title: caseStudy.title, description: caseStudy.summary };
+  const resource = englishResources.find((item) => item.path === path);
+  if (resource) return { title: resource.title, description: resource.description };
   if (path === "/en/") return { title: "Market research agency in Mexico and LATAM", description: "Senior-led market research for brands operating in Mexico and Latin America." };
   if (path === "/en/methodology") return { title: englishMethodology.title, description: englishMethodology.description };
   const staticMeta: Record<string, { title: string; description: string }> = {
@@ -30,7 +33,7 @@ function getMeta(path: string) {
 }
 
 export function generateStaticParams() {
-  return englishStaticPaths.map((path) => ({ slug: path === "/en/" ? undefined : path.slice(4).split("/") }));
+  return [...englishStaticPaths, ...englishResources.map((item) => item.path)].map((path) => ({ slug: path === "/en/" ? undefined : path.slice(4).split("/") }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -42,9 +45,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function EnglishPage({ params }: Props) {
   const path = resolvePath((await params).slug);
-  if (!englishStaticPaths.includes(path)) notFound();
+  if (![...englishStaticPaths, ...englishResources.map((item) => item.path)].includes(path)) notFound();
   const service = englishServices.find((item) => item.path === path);
   const caseStudy = englishCases.find((item) => item.path === path);
-  const data = service ? getServiceStructuredData(service) : caseStudy ? getCaseStructuredData(caseStudy) : path === "/en/about" ? getPeopleStructuredData() : path === "/en/frequently-asked-questions" ? getFaqStructuredData(englishFaqs) : null;
+  const resource = englishResources.find((item) => item.path === path);
+  const data = service ? getServiceStructuredData(service) : caseStudy ? getCaseStructuredData(caseStudy) : resource ? getResourceStructuredData(resource) : path === "/en/about" ? getPeopleStructuredData() : path === "/en/frequently-asked-questions" ? getFaqStructuredData(englishFaqs) : null;
   return <>{data && <StructuredData data={data} />}<EnglishPageView path={path} /></>;
 }
