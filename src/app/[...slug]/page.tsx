@@ -9,6 +9,7 @@ import {
 } from "@/data/site-content";
 import { generateMetadata as buildMetadata } from "@/utils/seo/generate-page-metadata";
 import { ContentPageView } from "@/views/content-page";
+import { siteConfig } from "@/lib/site";
 
 type PageProps = { params: Promise<{ slug: string[] }> };
 
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = resolvePath((await params).slug);
   const meta = getMeta(path);
   if (!meta) return {};
-  return buildMetadata({ title: `${meta.title} | GS Insights`, description: meta.description, url: path });
+  return buildMetadata({ title: `${meta.title} | ${siteConfig.name}`, description: meta.description, url: path });
 }
 
 export default async function ContentPage({ params }: PageProps) {

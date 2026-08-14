@@ -38,7 +38,7 @@ export const SiteFooter = ({ copy }: SiteFooterProps) => {
         {...COPY_REVEAL}
         className="mx-auto mt-[1.8vw] max-w-[38vw] justify-center text-center font-general text-[1.111vw] leading-[1.4] text-white/70 max-lg:mt-[1.25rem] max-lg:max-w-[34rem] max-lg:text-[0.9375rem]"
       >
-        Cuéntanos qué necesitas decidir. En 30 minutos revisamos el reto, la
+        Cuéntanos qué necesitas investigar. En 30 minutos revisamos el reto, la
         información disponible y el estudio que tendría sentido realizar.
       </Inview>
 

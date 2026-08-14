@@ -137,7 +137,7 @@ function CaseView({ page }: { page: CaseStudy }) {
       <div className="border-y border-white/15 py-[2rem]">
         <p className="text-[clamp(1.5rem,3vw,3rem)] font-light">{page.result}</p>
         <p className="mt-[1rem] text-signal">{page.role}</p>
-        <p className="mt-[0.75rem] text-white/60">Trayectoria del equipo previa a la creación de GS Insights.</p>
+        <p className="mt-[0.75rem] text-white/60">Trayectoria del equipo fundador, previa a GS Insights.</p>
       </div>
       <Sections sections={page.sections} />
       <ClosingCta />

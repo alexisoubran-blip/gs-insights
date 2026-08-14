@@ -26,11 +26,15 @@ const SUPPORT =
   "El mismo equipo define el estudio, supervisa la investigación, analiza los resultados y presenta la recomendación.";
 
 /** `value` / `label` / `left` (Figma x ÷14.4 — the desktop offset only). */
+// TODO_CIFRA_REAL: sustituir estos marcadores por métricas acumuladas y
+// verificables de la firma (por ejemplo, total de entrevistas, mercados
+// cubiertos, estudios concluidos y años combinados del equipo). No mezclar aquí
+// el tamaño muestral o el resultado de un solo caso.
 const STATS = [
-  { value: "+10", label: "Años en industria", left: "6.944vw" },
-  { value: "800", label: "Consumidores", left: "31.944vw" },
-  { value: "4", label: "Mercados internacionales", left: "56.944vw" },
-  { value: "+400%", label: "Conversión en un caso", left: "81.944vw" },
+  { value: "TODO", label: "Años combinados del equipo", left: "6.944vw" },
+  { value: "TODO", label: "Entrevistas acumuladas", left: "31.944vw" },
+  { value: "TODO", label: "Mercados cubiertos", left: "56.944vw" },
+  { value: "TODO", label: "Estudios concluidos", left: "81.944vw" },
 ];
 
 /** Column dividers between the stats (Figma x ÷14.4 — desktop only). */

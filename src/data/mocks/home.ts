@@ -31,6 +31,7 @@ export interface ProofCase {
   result: string;
   detail: string;
   href: string;
+  role: string;
 }
 
 export interface Capability {
@@ -58,7 +59,7 @@ export const homeFaq: FaqCopy = {
     {
       question: "¿Qué es GS Insights?",
       answer:
-        "GS Insights es una consultora senior de investigación de mercados en México con cobertura en Latinoamérica. Realizamos estudios cuantitativos y cualitativos para decisiones de mercado, consumidor, marca, comunicación y crecimiento.",
+        "GS Insights es una consultora senior de investigación de mercados en México con cobertura en Latinoamérica. Realizamos estudios cuantitativos y cualitativos para retos de mercado, consumidor, marca, comunicación y crecimiento.",
     },
     {
       question: "¿En qué se diferencia GS Insights de una firma global?",
@@ -66,9 +67,9 @@ export const homeFaq: FaqCopy = {
         "Ofrecemos rigor metodológico y experiencia senior con un proceso más directo. El equipo que diseña el estudio también supervisa la investigación, interpreta los resultados y presenta la recomendación.",
     },
     {
-      question: "¿Qué tipo de decisiones investigan?",
+      question: "¿Qué tipo de retos investigan?",
       answer:
-        "Ayudamos a evaluar mercados, oportunidades de categoría, segmentos, posicionamiento, salud de marca, conceptos, comunicación, innovación y decisiones de inversión.",
+        "Ayudamos a evaluar mercados, oportunidades de categoría, segmentos, posicionamiento, salud de marca, conceptos, comunicación, innovación e inversión.",
     },
     {
       question: "¿Trabajan con equipos internos y agencias?",
@@ -83,7 +84,7 @@ export const homeFaq: FaqCopy = {
     {
       question: "¿Cómo empieza una colaboración?",
       answer:
-        "Con una conversación de 30 minutos para entender qué necesitas decidir, qué información ya tienes y qué falta comprobar. Si existe encaje, presentamos alcance, metodología, tiempos e inversión.",
+        "Con una conversación de 30 minutos para entender el reto, qué información ya tienes y qué falta comprobar. Si existe encaje, presentamos alcance, metodología, tiempos e inversión.",
     },
   ],
 };
@@ -91,7 +92,7 @@ export const homeFaq: FaqCopy = {
 export const homeFooter: FooterCopy = {
   wordmark: "GS Insights",
   tagline:
-    "Investigación de mercados para decidir con mayor certeza.",
+    "Investigación de mercados para reducir riesgo antes de invertir.",
   columns: [
     {
       heading: "Explorar",
@@ -137,45 +138,50 @@ export const homeLoader: LoaderCopy = {
 
 export const homeProof: ProofCopy = {
   eyebrow: "04 — EVIDENCIA",
-  title: "Experiencia aplicada a decisiones reales.",
+  title: "Experiencia aplicada a retos reales.",
   intro:
     "Más de 10 años trabajando en investigación, estrategia, medición y crecimiento de marca en México y Latinoamérica.",
-  disclosure:
-    "Casos realizados por integrantes del equipo antes de la creación de GS Insights.",
+  disclosure: "Trayectoria del equipo fundador, previa a GS Insights.",
   cases: [
     {
       brand: "Tajín",
       result: "800 consumidores · 4 mercados",
       detail: "Validación de una oportunidad en mercados internacionales.",
       href: "/casos/tajin-oportunidad-internacional",
+      role: "TODO_DATO_REAL: rol del integrante del equipo fundador.",
     },
     {
       brand: "FedEx",
       result: "Brand tracking regional",
       detail: "Seguimiento de visibilidad, consideración y desempeño de marca.",
       href: "/casos/fedex-brand-tracking-regional",
+      role: "TODO_DATO_REAL: rol del integrante del equipo fundador.",
     },
     {
       brand: "Takis",
       result: "Cultura de consumo",
       detail: "Investigación cualitativa para entender comportamientos y oportunidades de comunicación.",
       href: "/casos/takis-cultura-de-consumo",
+      role: "TODO_DATO_REAL: rol del integrante del equipo fundador.",
     },
     {
       brand: "SharkNinja",
       result: "131.3M visualizaciones",
       detail: "Insights aplicados a una activación de alto alcance.",
       href: "/casos/sharkninja-activacion-de-alcance",
+      role: "TODO_DATO_REAL: rol del integrante del equipo fundador.",
     },
     {
       brand: "Bitso",
-      result: "+400% conversión",
+      result:
+        "+400% en conversión tras rediseñar la propuesta de valor con base en segmentación (fintech, México).",
       detail: "Medición y optimización orientadas a resultados comerciales.",
       href: "/casos/bitso-optimizacion-de-conversion",
+      role: "TODO_DATO_REAL: rol del integrante del equipo fundador.",
     },
   ],
   capabilitiesEyebrow: "SERVICIOS",
-  capabilitiesTitle: "Estudios diseñados alrededor de tu decisión.",
+  capabilitiesTitle: "Segmentación, brand health, test de concepto y pricing.",
   capabilities: [
     {
       index: "01",
@@ -188,7 +194,7 @@ export const homeProof: ProofCopy = {
       index: "02",
       title: "Consumidor y segmentación",
       detail:
-        "Entiende quién compra, qué necesita, cómo decide y qué diferencia a cada segmento.",
+        "Entiende quién compra, qué necesita, cómo elige y qué diferencia a cada segmento.",
       href: "/servicios/segmentacion-de-mercado",
     },
     {

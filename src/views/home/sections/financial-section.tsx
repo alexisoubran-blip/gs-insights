@@ -68,7 +68,7 @@ export const FinancialSection = ({ copy }: FinancialSectionProps) => {
             >
               {copy.intro}
             </Inview>
-            <p className="mt-[1vw] font-tag text-[0.764vw] leading-[1.35] text-black/55 uppercase max-lg:mt-[0.75rem] max-lg:text-[0.6875rem]">
+            <p className="mt-[1vw] font-general text-[1.111vw] leading-[1.45] text-black max-lg:mt-[0.75rem] max-lg:text-[0.9375rem]">
               {copy.disclosure}
             </p>
           </div>
@@ -96,6 +96,9 @@ export const FinancialSection = ({ copy }: FinancialSectionProps) => {
               </p>
               <p className="mt-[0.9vw] font-general text-[0.903vw] leading-[1.35] text-black/65 max-lg:mt-[0.75rem] max-lg:text-[0.8125rem]">
                 {item.detail}
+              </p>
+              <p className="mt-[0.75rem] font-general text-[0.75rem] leading-[1.35] text-black/60">
+                {item.role}
               </p>
               <Link href={item.href} className="mt-[1rem] inline-block border-b border-black pb-[0.2rem] font-general text-[0.8rem]">
                 Ver más
