@@ -3,13 +3,21 @@ import { notFound } from "next/navigation";
 
 import {
   methodologyPage,
+  spanishFaqs,
   spanishCases,
   spanishStaticPaths,
   spanishServices,
 } from "@/data/site-content";
+import { StructuredData } from "@/components/seo/structured-data";
 import { generateMetadata as buildMetadata } from "@/utils/seo/generate-page-metadata";
 import { ContentPageView } from "@/views/content-page";
 import { siteConfig } from "@/lib/site";
+import {
+  getCaseStructuredData,
+  getFaqStructuredData,
+  getPeopleStructuredData,
+  getServiceStructuredData,
+} from "@/utils/seo/structured-data";
 
 type PageProps = { params: Promise<{ slug: string[] }> };
 
@@ -43,5 +51,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function ContentPage({ params }: PageProps) {
   const path = resolvePath((await params).slug);
   if (!spanishStaticPaths.includes(path)) notFound();
-  return <ContentPageView path={path} />;
+  const service = spanishServices.find((item) => item.path === path);
+  const caseStudy = spanishCases.find((item) => item.path === path);
+  const structuredData = service
+    ? getServiceStructuredData(service)
+    : caseStudy
+      ? getCaseStructuredData(caseStudy)
+      : path === "/nosotros"
+        ? getPeopleStructuredData()
+        : path === "/preguntas-frecuentes"
+          ? getFaqStructuredData(spanishFaqs)
+          : null;
+
+  return (
+    <>
+      {structuredData && <StructuredData data={structuredData} />}
+      <ContentPageView path={path} />
+    </>
+  );
 }

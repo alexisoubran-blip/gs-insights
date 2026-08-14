@@ -7,6 +7,96 @@
  */
 
 import { siteConfig } from "@/lib/site";
+import {
+  contactDetails,
+  founders,
+  type CaseStudy,
+  type FaqItem,
+  type ServicePage,
+} from "@/data/site-content";
+
+const organizationId = `${siteConfig.url}/#organization`;
+
+export const knowledgeAreas = [
+  "Investigación de mercados",
+  "Consumer insights",
+  "conjoint analysis",
+  "MaxDiff",
+  "U&A",
+  "test de concepto",
+  "Van Westendorp",
+  "brand health tracking",
+  "segmentación por clusters",
+  "CAWI",
+  "CATI",
+  "panel online",
+  "etnografía",
+  "sesiones de profundidad",
+  "tamaño muestral",
+  "margen de error",
+  "incidencia",
+] as const;
+
+export function getFaqStructuredData(items: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
+
+export function getServiceStructuredData(page: ServicePage) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${siteConfig.url}${page.path}/#service`,
+        name: page.title,
+        description: page.description,
+        url: `${siteConfig.url}${page.path}`,
+        serviceType: page.navTitle,
+        areaServed: ["México", "Latinoamérica"],
+        provider: { "@id": organizationId },
+      },
+      { ...getFaqStructuredData(page.faqs), "@context": undefined },
+    ],
+  };
+}
+
+export function getPeopleStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": founders.map((person, index) => ({
+      "@type": "Person",
+      "@id": `${siteConfig.url}/nosotros/#socio-${index + 1}`,
+      name: person.name,
+      jobTitle: person.role,
+      description: `${person.years}. Formación: ${person.education}. Membresías: ${person.memberships}.`,
+      worksFor: { "@id": organizationId },
+      sameAs: [person.linkedin],
+    })),
+  };
+}
+
+export function getCaseStructuredData(page: CaseStudy) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: page.title,
+    description: page.summary,
+    url: `${siteConfig.url}${page.path}`,
+    datePublished: "TODO_DATE_PUBLISHED",
+    dateModified: "2026-08-14",
+    author: { "@type": "Person", name: "TODO_AUTHOR_REAL" },
+    publisher: { "@id": organizationId },
+    about: page.brand,
+  };
+}
 
 /**
  * Organization + WebSite schema for the site root. Emit once, in the root
@@ -18,32 +108,51 @@ export function getSiteStructuredData() {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": `${siteConfig.url}/#organization`,
-        name: "GS Insights",
+        "@id": organizationId,
+        name: siteConfig.name,
+        alternateName: "GS Insights",
         url: siteConfig.url,
         logo: `${siteConfig.url}/icon.svg`,
         description: siteConfig.description,
-        areaServed: ["México", "Latinoamérica"],
-        knowsAbout: [
-          "Investigación de mercados",
-          "Consumer insights",
-          "Investigación cuantitativa",
-          "Investigación cualitativa",
-          "Brand tracking",
-          "Pruebas de concepto",
-          "Segmentación de consumidores",
-          "Entrada a mercado",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "TODO_DIRECCION_POSTAL",
+          addressLocality: "Ciudad de México",
+          postalCode: "TODO_CODIGO_POSTAL",
+          addressCountry: "MX",
+        },
+        email: contactDetails.email,
+        telephone: contactDetails.telephone,
+        areaServed: [
+          "México",
+          "Argentina",
+          "Brasil",
+          "Chile",
+          "Colombia",
+          "Costa Rica",
+          "Ecuador",
+          "Guatemala",
+          "Panamá",
+          "Perú",
+          "Uruguay",
+        ],
+        knowsAbout: knowledgeAreas,
+        sameAs: [
+          "TODO_LINKEDIN_EMPRESA",
+          "TODO_CRUNCHBASE_EMPRESA",
+          "TODO_PERFIL_DIRECTORIO_EMPRESA",
         ],
       },
       {
         "@type": "ProfessionalService",
         "@id": `${siteConfig.url}/#service`,
-        name: "GS Insights",
+        name: siteConfig.name,
+        alternateName: "GS Insights",
         url: siteConfig.url,
         description:
           "Consultora senior de investigación de mercados en México con cobertura en Latinoamérica.",
         areaServed: ["México", "Latinoamérica"],
-        provider: { "@id": `${siteConfig.url}/#organization` },
+        provider: { "@id": organizationId },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Servicios de investigación de mercados",
@@ -61,10 +170,11 @@ export function getSiteStructuredData() {
       {
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
-        name: "GS Insights",
+        name: siteConfig.name,
+        alternateName: "GS Insights",
         description: siteConfig.description,
         url: siteConfig.url,
-        publisher: { "@id": `${siteConfig.url}/#organization` },
+        publisher: { "@id": organizationId },
       },
     ],
   };
