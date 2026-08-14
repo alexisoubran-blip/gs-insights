@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Inview } from "@/components/animation/springs/in-view";
 import type { ProofCopy } from "@/data/mocks/home";
 import {
@@ -96,6 +97,9 @@ export const FinancialSection = ({ copy }: FinancialSectionProps) => {
               <p className="mt-[0.9vw] font-general text-[0.903vw] leading-[1.35] text-black/65 max-lg:mt-[0.75rem] max-lg:text-[0.8125rem]">
                 {item.detail}
               </p>
+              <Link href={item.href} className="mt-[1rem] inline-block border-b border-black pb-[0.2rem] font-general text-[0.8rem]">
+                Ver más
+              </Link>
             </li>
           ))}
         </Inview>
@@ -145,6 +149,9 @@ export const FinancialSection = ({ copy }: FinancialSectionProps) => {
                   <p className="mt-[0.8vw] max-w-[24vw] font-general text-[0.903vw] leading-[1.4] text-black/65 max-lg:mt-[0.625rem] max-lg:max-w-none max-lg:text-[0.8125rem]">
                     {item.detail}
                   </p>
+                  <Link href={item.href} className="mt-[1rem] inline-block border-b border-black pb-[0.2rem] font-general text-[0.8rem]">
+                    Ver más
+                  </Link>
                 </div>
               </li>
             ))}
