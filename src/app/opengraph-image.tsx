@@ -35,7 +35,7 @@ export default function OpenGraphImage() {
               maxWidth: 940,
             }}
           >
-            Decide con mayor certeza.
+            GS Insights — Investigación de mercados en México y LATAM
           </div>
           <div style={{ color: "#a8acb8", display: "flex", fontSize: 25 }}>
             Inteligencia de mercado senior · México + LATAM

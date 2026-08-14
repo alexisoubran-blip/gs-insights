@@ -29,11 +29,12 @@ import { SendRequest } from "../send-request";
  * over the explicit desktop position supplied to the spring wrapper.
  */
 
-const TITLE = "Decide con mayor certeza.";
+const TITLE =
+  "Investigación de mercados para marcas que operan en México y LATAM.";
 const TAGLINE =
   "Investigación de mercados para reducir riesgos antes de invertir.";
 const SUPPORT =
-  "El rigor y las metodologías de una gran consultora, con especialistas senior involucrados de principio a fin.";
+  "Sin equipos junior: el mismo investigador que diseña el estudio te presenta la recomendación.";
 const TAGS = ["[ MERCADO ]", "[ CONSUMIDOR ]", "[ MARCA ]"];
 
 export interface HeroProps {

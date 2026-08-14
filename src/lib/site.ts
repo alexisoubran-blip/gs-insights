@@ -7,7 +7,7 @@
 import { publicEnv } from "@/env";
 
 export const siteConfig = {
-  name: "GS Insights | Investigación de mercados en México y Latinoamérica",
+  name: "GS Insights — Investigación de mercados en México y LATAM",
   description:
     "Consultora senior de investigación de mercados. Estudios de consumidor, marca, comunicación y oportunidades en México y Latinoamérica.",
   /**

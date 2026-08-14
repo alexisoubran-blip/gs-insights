@@ -61,7 +61,7 @@ const buildService = (seed: ServiceSeed): ServicePage => ({
       heading: "Qué responde el estudio",
       paragraphs: [
         `El punto de partida no es una técnica aislada, sino una pregunta de negocio verificable. ${seed.design} Antes de levantar campo, convertimos los supuestos del equipo en hipótesis, variables y criterios de lectura. Eso permite distinguir una señal accionable de una diferencia aparente y evita recolectar información que no cambiará el curso del proyecto.`,
-        "El alcance se acuerda con marketing, insights, innovación o dirección. Documentamos la población objetivo, geografía, contexto competitivo, decisiones posteriores y restricciones operativas. Cuando el reto abarca varios países de Latinoamérica, conservamos un núcleo comparable y adaptamos lenguaje, estímulos y cuotas a cada mercado; no asumimos que una traducción literal produce datos equivalentes.",
+        "El alcance se acuerda con marketing, insights, innovación o dirección. Documentamos la población objetivo, geografía, contexto competitivo, acciones posteriores y restricciones operativas. Cuando el reto abarca varios países de Latinoamérica, conservamos un núcleo comparable y adaptamos lenguaje, estímulos y cuotas a cada mercado; no asumimos que una traducción literal produce datos equivalentes.",
       ],
     },
     {
@@ -194,7 +194,7 @@ export const spanishServices: ServicePage[] = [
     moment:
       "Se utiliza cuando existen conceptos suficientemente definidos para ser evaluados, pero todavía hay margen para modificarlos. Puede aplicarse antes de prototipos, al comparar territorios de innovación, durante el desarrollo de empaque o antes de producir una campaña.",
     design:
-      "Alineamos qué decisión tomará el equipo con el resultado y estandarizamos los estímulos para que la comparación sea justa. La exposición monádica reduce contaminación entre conceptos; un diseño secuencial puede servir para diagnóstico cuando el orden se controla.",
+      "Alineamos qué acción tomará el equipo con el resultado y estandarizamos los estímulos para que la comparación sea justa. La exposición monádica reduce contaminación entre conceptos; un diseño secuencial puede servir para diagnóstico cuando el orden se controla.",
     analysis:
       "Sesiones de profundidad permiten depurar lenguaje y revelar objeciones. Después, un test cuantitativo estima niveles y diferencias. MaxDiff puede ordenar beneficios o mensajes; conjoint analysis ayuda cuando la aceptación depende de combinaciones de atributos, formatos y precio en lugar de una idea única.",
     outputs: [
@@ -282,7 +282,7 @@ export const spanishServices: ServicePage[] = [
     moment:
       "Se utiliza cuando existe una oferta suficientemente concreta y un conjunto realista de precios o configuraciones. Es especialmente útil antes de lanzar, al rediseñar paquetes, frente a inflación o cuando ventas observa objeciones que necesitan ser separadas de problemas de producto o comunicación.",
     design:
-      "Elegimos el método según la decisión. Van Westendorp explora umbrales de percepción con cuatro preguntas; Gabor-Granger estima intención ante niveles; conjoint analysis modela intercambios entre precio, marca, atributos y paquete cuando el contexto de elección es central.",
+      "Elegimos el método según la pregunta comercial. Van Westendorp explora umbrales de percepción con cuatro preguntas; Gabor-Granger estima intención ante niveles; conjoint analysis modela intercambios entre precio, marca, atributos y paquete cuando el contexto de elección es central.",
     analysis:
       "Revisamos coherencia, experiencia de compra y rango competitivo antes del campo. Un panel online permite controlar cuotas y aleatorización; sesiones de profundidad ayudan a comprender referencias y lenguaje. Segmentamos la respuesta cuando hay bases suficientes y evitamos convertir intención declarada en una curva de demanda causal.",
     outputs: [
@@ -307,7 +307,7 @@ export const spanishServices: ServicePage[] = [
       "Se confunde disposición declarada con comportamiento observado.",
     ],
     faqs: [
-      { question: "¿Qué método de pricing conviene?", answer: "Depende de si buscas umbrales, respuesta a niveles o intercambios entre configuraciones. La decisión comercial determina el método." },
+      { question: "¿Qué método de pricing conviene?", answer: "Depende de si buscas umbrales, respuesta a niveles o intercambios entre configuraciones. La pregunta comercial determina el método." },
       { question: "¿Qué entrega Van Westendorp?", answer: "Un rango de percepciones de precio derivado de cuatro umbrales declarados. No sustituye un modelo de demanda ni el análisis financiero." },
       { question: "¿Conjoint sirve para definir paquetes?", answer: "Sí. Permite estimar preferencias relativas y simular configuraciones si los atributos y niveles representan opciones creíbles." },
       { question: "¿Se puede comparar sensibilidad por segmento?", answer: "Sí, cuando el tamaño muestral y la incidencia sostienen esas estimaciones. Las bases pequeñas se reportan como exploratorias." },

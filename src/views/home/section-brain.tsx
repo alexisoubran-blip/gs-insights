@@ -26,7 +26,8 @@ import { SendRequest } from "./send-request";
  */
 
 const TITLE_LEFT = "Hacemos la investigación.";
-const TITLE_RIGHT = "Te ayudamos a decidir.";
+const TITLE_RIGHT =
+  "Agenda 30 minutos para revisar tu reto de investigación.";
 const TAGLINE_LEFT =
   "Diseño, levantamiento, control de calidad, análisis y presentación ejecutiva.";
 const TAGLINE_RIGHT = "UN MISMO EQUIPO DE PRINCIPIO A FIN";
