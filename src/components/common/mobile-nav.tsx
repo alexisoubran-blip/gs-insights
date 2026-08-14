@@ -113,8 +113,6 @@ export const MobileNav = ({ items, contactUrl }: MobileNavProps) => {
 
           <PressableLink
             href={contactUrl}
-            target="_blank"
-            rel="noreferrer"
             onClick={() => setOpen(false)}
             interaction={GHOST}
             className="mt-[0.75rem] flex items-center justify-center gap-[0.5rem] border px-[1.111rem] py-[0.75rem] font-general text-[1rem] leading-[1.2]"

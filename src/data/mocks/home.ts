@@ -30,12 +30,14 @@ export interface ProofCase {
   brand: string;
   result: string;
   detail: string;
+  href: string;
 }
 
 export interface Capability {
   index: string;
   title: string;
   detail: string;
+  href: string;
 }
 
 export interface ProofCopy {
@@ -145,26 +147,31 @@ export const homeProof: ProofCopy = {
       brand: "Tajín",
       result: "800 consumidores · 4 mercados",
       detail: "Validación de una oportunidad en mercados internacionales.",
+      href: "/casos/tajin-oportunidad-internacional",
     },
     {
       brand: "FedEx",
       result: "Brand tracking regional",
       detail: "Seguimiento de visibilidad, consideración y desempeño de marca.",
+      href: "/casos/fedex-brand-tracking-regional",
     },
     {
       brand: "Takis",
       result: "Cultura de consumo",
       detail: "Investigación cualitativa para entender comportamientos y oportunidades de comunicación.",
+      href: "/casos/takis-cultura-de-consumo",
     },
     {
       brand: "SharkNinja",
       result: "131.3M visualizaciones",
       detail: "Insights aplicados a una activación de alto alcance.",
+      href: "/casos/sharkninja-activacion-de-alcance",
     },
     {
       brand: "Bitso",
       result: "+400% conversión",
       detail: "Medición y optimización orientadas a resultados comerciales.",
+      href: "/casos/bitso-optimizacion-de-conversion",
     },
   ],
   capabilitiesEyebrow: "SERVICIOS",
@@ -175,24 +182,28 @@ export const homeProof: ProofCopy = {
       title: "Mercados y oportunidades",
       detail:
         "Evalúa demanda, competencia, barreras y condiciones para entrar a un mercado o categoría.",
+      href: "/servicios/estudio-de-mercado-mexico",
     },
     {
       index: "02",
       title: "Consumidor y segmentación",
       detail:
         "Entiende quién compra, qué necesita, cómo decide y qué diferencia a cada segmento.",
+      href: "/servicios/segmentacion-de-mercado",
     },
     {
       index: "03",
       title: "Marca y comunicación",
       detail:
         "Mide posicionamiento y prueba conceptos, mensajes, campañas, productos o empaques.",
+      href: "/servicios/test-de-concepto",
     },
     {
       index: "04",
       title: "Medición y crecimiento",
       detail:
         "Detecta qué funciona, qué frena los resultados y dónde conviene invertir.",
+      href: "/servicios/brand-tracking",
     },
   ],
 };

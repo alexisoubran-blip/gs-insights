@@ -51,8 +51,6 @@ export const SiteFooter = ({ copy }: SiteFooterProps) => {
       >
         <PressableLink
           href={CONTACT_URL}
-          target="_blank"
-          rel="noreferrer"
           interaction={GHOST_SIGNAL}
           className="flex items-center gap-[0.75vw] border px-[2vw] py-[1vw] font-general text-[1.111vw] leading-[1.2] max-lg:gap-[0.5rem] max-lg:px-[1.5rem] max-lg:py-[0.9375rem] max-lg:text-[1rem]"
         >

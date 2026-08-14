@@ -61,8 +61,6 @@ export const SiteHeader = () => {
             utility anyway, and having both would just be a lie in the markup. */}
         <PressableLink
           href={CONTACT_URL}
-          target="_blank"
-          rel="noreferrer"
           interaction={GHOST}
           className="flex shrink-0 items-center gap-[0.694vw] self-stretch border px-[1.111vw] font-general text-[1.111vw] leading-[1.2] font-normal whitespace-nowrap max-lg:hidden"
         >
