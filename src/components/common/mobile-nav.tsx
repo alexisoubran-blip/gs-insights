@@ -15,6 +15,7 @@ export interface MobileNavItem {
 export interface MobileNavProps {
   items: readonly MobileNavItem[];
   contactUrl: string;
+  contactLabel?: string;
 }
 
 /**
@@ -29,7 +30,7 @@ export interface MobileNavProps {
  * a fixed, blurred panel keeps compositing over the WebGL canvas for nothing.
  * The bars of the toggle animate into an ✕ off the same spring.
  */
-export const MobileNav = ({ items, contactUrl }: MobileNavProps) => {
+export const MobileNav = ({ items, contactUrl, contactLabel = "Evaluar proyecto" }: MobileNavProps) => {
   const [open, setOpen] = useState(false);
   // Kept mounted until the close spring has finished, so the exit is visible.
   const [mounted, setMounted] = useState(false);
@@ -117,7 +118,7 @@ export const MobileNav = ({ items, contactUrl }: MobileNavProps) => {
             interaction={GHOST}
             className="mt-[0.75rem] flex items-center justify-center gap-[0.5rem] border px-[1.111rem] py-[0.75rem] font-general text-[1rem] leading-[1.2]"
           >
-            Evaluar proyecto
+            {contactLabel}
             <span aria-hidden className="block size-[0.1875rem] bg-current" />
           </PressableLink>
         </animated.nav>

@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 
-import { spanishRoutes } from "@/data/routes";
+import { englishRoutes, spanishRoutes } from "@/data/routes";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return spanishRoutes.map(({ path, lastModified }) => ({
+  return [...spanishRoutes, ...englishRoutes].map(({ path, lastModified }) => ({
     url: new URL(path, siteConfig.url).toString(),
     lastModified,
     changeFrequency:

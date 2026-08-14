@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { PressableLink } from "@/components/ui/pressable";
 import { GHOST, NAV_LINK, QUIET } from "@/lib/springs/interaction";
 
@@ -16,24 +19,34 @@ import { MobileNav } from "./mobile-nav";
  *
  * Below 1024px (ADR-0029) the bar keeps the logo but hands the links to
  * {@link MobileNav}: a `vw`-sized pill is 14px tall on a phone, and four links
- * plus a button do not fit that row at any legible size. This stays a Server
- * Component — only the toggle is a client leaf.
+ * plus a button do not fit that row at any legible size. The small pathname
+ * branch keeps Spanish and English navigation aligned with the active route.
  */
-const NAV = [
+const NAV_ES = [
   { label: "Enfoque", href: "/#enfoque" },
   { label: "Servicios", href: "/#capacidades" },
   { label: "Casos", href: "/#casos" },
   { label: "Preguntas", href: "/#preguntas" },
 ] as const;
 
+const NAV_EN = [
+  { label: "Services", href: "/en/#services" },
+  { label: "Methodology", href: "/en/methodology" },
+  { label: "Cases", href: "/en/case-studies" },
+  { label: "Questions", href: "/en/frequently-asked-questions" },
+] as const;
+
 const CONTACT_URL = "/contacto";
 
 export const SiteHeader = () => {
+  const english = usePathname().startsWith("/en");
+  const nav = english ? NAV_EN : NAV_ES;
+  const contactUrl = english ? "/en/contact" : CONTACT_URL;
   return (
     <header className="pointer-events-auto fixed top-[0.694vw] left-1/2 z-50 h-[3.542vw] w-[62vw] max-w-[95vw] -translate-x-1/2 border border-white/10 bg-black/80 backdrop-blur-[8px] max-lg:top-[1rem] max-lg:h-[3.5rem] max-lg:w-[calc(100%-3rem)] max-sm:top-[0.75rem] max-sm:w-[calc(100%-2.5rem)]">
       <div className="flex h-full items-center justify-between py-[0.556vw] pr-[0.556vw] pl-[0.833vw] max-lg:py-[0.5rem] max-lg:pr-[0.5rem] max-lg:pl-[1rem]">
         <PressableLink
-          href="/"
+          href={english ? "/en/" : "/"}
           aria-label="GS Insights — inicio"
           interaction={QUIET}
           className="block shrink-0 font-general text-[1.111vw] leading-none font-medium tracking-[-0.02em] max-lg:text-[1.125rem]"
@@ -45,7 +58,7 @@ export const SiteHeader = () => {
           aria-label="Main"
           className="flex items-center gap-[2.222vw] font-general text-[1.111vw] leading-[1.2] font-normal whitespace-nowrap max-lg:hidden"
         >
-          {NAV.map((item) => (
+          {nav.map((item) => (
             <PressableLink
               key={item.label}
               href={item.href}
@@ -60,15 +73,15 @@ export const SiteHeader = () => {
             width and style only — an inline spring value would beat a `border-*`
             utility anyway, and having both would just be a lie in the markup. */}
         <PressableLink
-          href={CONTACT_URL}
+          href={contactUrl}
           interaction={GHOST}
           className="flex shrink-0 items-center gap-[0.694vw] self-stretch border px-[1.111vw] font-general text-[1.111vw] leading-[1.2] font-normal whitespace-nowrap max-lg:hidden"
         >
-          Cuéntanos tu proyecto
+          {english ? "Discuss your project" : "Cuéntanos tu proyecto"}
           <span aria-hidden className="block size-[0.139vw] bg-current" />
         </PressableLink>
 
-        <MobileNav items={NAV} contactUrl={CONTACT_URL} />
+        <MobileNav items={nav} contactUrl={contactUrl} contactLabel={english ? "Discuss your project" : "Evaluar proyecto"} />
       </div>
     </header>
   );
