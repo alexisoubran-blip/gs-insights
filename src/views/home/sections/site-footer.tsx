@@ -1,12 +1,10 @@
 "use client";
 
-import TextEngine from "spring-text-engine";
-
 import { Inview } from "@/components/animation/springs/in-view";
 import { PressableLink } from "@/components/ui/pressable";
 import type { FooterCopy } from "@/data/mocks/home";
 import { GHOST_SIGNAL, MUTED_LINK } from "@/lib/springs/interaction";
-import { LETTER_REVEAL, UNIT_REVEAL, WORD_REVEAL } from "../reveal";
+import { COPY_REVEAL, HEADING_REVEAL, UNIT_REVEAL } from "../reveal";
 
 const CONTACT_URL = "/contacto";
 
@@ -24,25 +22,25 @@ export const SiteFooter = ({ copy }: SiteFooterProps) => {
       <p className="text-center font-tag text-[0.833vw] tracking-[0.08em] text-white/60 uppercase max-lg:text-[0.75rem]">
         INVESTIGACIÓN SENIOR · MÉXICO + LATINOAMÉRICA
       </p>
-      <TextEngine
+      <Inview
         tag="h2"
         mode="once"
-        {...LETTER_REVEAL}
+        {...HEADING_REVEAL}
         className="mx-auto mt-[1.25vw] max-w-[70vw] justify-center text-center font-general text-[5vw] leading-[0.94] font-light max-lg:mt-[1rem] max-lg:max-w-none max-lg:text-[3rem] max-sm:text-[2.25rem]"
       >
         Antes de invertir, comprueba qué está viendo el mercado.
-      </TextEngine>
+      </Inview>
 
-      <TextEngine
+      <Inview
         tag="p"
         mode="once"
         delayIn={160}
-        {...WORD_REVEAL}
+        {...COPY_REVEAL}
         className="mx-auto mt-[1.8vw] max-w-[38vw] justify-center text-center font-general text-[1.111vw] leading-[1.4] text-white/70 max-lg:mt-[1.25rem] max-lg:max-w-[34rem] max-lg:text-[0.9375rem]"
       >
         Cuéntanos qué necesitas decidir. En 30 minutos revisamos el reto, la
         información disponible y el estudio que tendría sentido realizar.
-      </TextEngine>
+      </Inview>
 
       <Inview
         mode="once"

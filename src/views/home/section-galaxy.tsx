@@ -2,11 +2,11 @@
 
 import { animated } from "@react-spring/web";
 import { useEffect, useMemo, useState } from "react";
-import TextEngine from "spring-text-engine";
 
+import { Inview } from "@/components/animation/springs/in-view";
 import { sceneTimeline } from "@/lib/scene/timeline";
 import { hiddenWhenClear, smoothstep, useSceneClock } from "./overlay";
-import { LETTER_REVEAL, WORD_REVEAL } from "./reveal";
+import { COPY_REVEAL, HEADING_REVEAL } from "./reveal";
 
 /**
  * Second-section overlay — the Figma "Reads presence, in motion" screen over the
@@ -69,32 +69,32 @@ export const SectionGalaxy = () => {
       className="pointer-events-none fixed inset-0 z-10 text-white max-lg:flex max-lg:flex-col max-lg:justify-between max-lg:px-[1.5rem] max-lg:pt-[6.5rem] max-lg:pb-[2rem] max-sm:px-[1.25rem] max-sm:pt-[5.5rem]"
       style={{ opacity, visibility }}
     >
-      <TextEngine
+      <Inview
         tag="h2"
         mode="always"
         enabled={active}
         immediateOut={false}
-        {...LETTER_REVEAL}
+        {...HEADING_REVEAL}
         style={{ position: "absolute" }}
         className="absolute top-[6.25vw] left-1/2 w-[67vw] -translate-x-1/2 justify-center text-center font-general text-[4.9vw] leading-[0.92] font-light max-lg:static! max-lg:w-full max-lg:translate-x-0 max-lg:text-[3.25rem] max-sm:text-[2.375rem]"
       >
         {TITLE}
-      </TextEngine>
+      </Inview>
 
       {/* Bottom cluster — support copy, dividers, stat band. */}
       <div className="absolute inset-x-0 bottom-0 h-[16.181vw] max-lg:static! max-lg:flex max-lg:h-auto max-lg:flex-col max-lg:gap-[1.5rem]">
-        <TextEngine
+        <Inview
           tag="p"
           mode="always"
           enabled={active}
           immediateOut={false}
           delayIn={200}
-          {...WORD_REVEAL}
+          {...COPY_REVEAL}
           style={{ position: "absolute" }}
           className="absolute top-0 left-1/2 w-[36vw] -translate-x-1/2 justify-center text-center font-general text-[1.111vw] leading-[1.35] max-lg:static! max-lg:w-full max-lg:translate-x-0 max-lg:justify-start max-lg:text-left max-lg:text-[0.9375rem] max-sm:text-[0.8125rem]"
         >
           {SUPPORT}
-        </TextEngine>
+        </Inview>
 
         {/* The rule across the top of the stat band, and the columns between the
             stats. Both are pure desktop chrome — the grid below carries its own

@@ -1,14 +1,12 @@
 "use client";
 
-import TextEngine from "spring-text-engine";
-
 import { Inview } from "@/components/animation/springs/in-view";
 import type { ProofCopy } from "@/data/mocks/home";
 import {
   CARD_REVEAL,
-  LETTER_REVEAL,
+  COPY_REVEAL,
+  HEADING_REVEAL,
   UNIT_REVEAL,
-  WORD_REVEAL,
 } from "../reveal";
 
 export interface FinancialSectionProps {
@@ -46,29 +44,29 @@ export const FinancialSection = ({ copy }: FinancialSectionProps) => {
             >
               {copy.eyebrow}
             </Inview>
-            <TextEngine
+            <Inview
               tag="h2"
               id="proof-title"
               mode="always"
               immediateOut={false}
-              {...LETTER_REVEAL}
+              {...HEADING_REVEAL}
               className="mt-[1.25vw] font-general text-[4.8vw] leading-[0.94] font-light max-lg:mt-[1rem] max-lg:text-[2.75rem] max-sm:text-[2.125rem]"
             >
               {copy.title}
-            </TextEngine>
+            </Inview>
           </div>
 
           <div className="flex flex-col justify-end">
-            <TextEngine
+            <Inview
               tag="p"
               mode="always"
               immediateOut={false}
               delayIn={140}
-              {...WORD_REVEAL}
+              {...COPY_REVEAL}
               className="font-general text-[1.111vw] leading-[1.45] max-lg:text-[0.9375rem]"
             >
               {copy.intro}
-            </TextEngine>
+            </Inview>
             <p className="mt-[1vw] font-tag text-[0.764vw] leading-[1.35] text-black/55 uppercase max-lg:mt-[0.75rem] max-lg:text-[0.6875rem]">
               {copy.disclosure}
             </p>
@@ -113,15 +111,15 @@ export const FinancialSection = ({ copy }: FinancialSectionProps) => {
           >
             {copy.capabilitiesEyebrow}
           </Inview>
-          <TextEngine
+          <Inview
             tag="h2"
             mode="always"
             immediateOut={false}
-            {...LETTER_REVEAL}
+            {...HEADING_REVEAL}
             className="mt-[1.25vw] max-w-[65vw] font-general text-[4.2vw] leading-[0.96] font-light max-lg:mt-[1rem] max-lg:max-w-none max-lg:text-[2.5rem] max-sm:text-[2rem]"
           >
             {copy.capabilitiesTitle}
-          </TextEngine>
+          </Inview>
 
           <Inview
             tag="ol"
