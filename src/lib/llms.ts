@@ -9,6 +9,13 @@ import {
   type FaqItem,
 } from "@/data/site-content";
 import { siteConfig } from "@/lib/site";
+import {
+  englishCases,
+  englishFaqs,
+  englishMethodology,
+  englishServices,
+} from "@/data/english-content";
+import { allResources } from "@/data/resource-content";
 
 const absolute = (path: string) => new URL(path, siteConfig.url).toString();
 
@@ -46,6 +53,7 @@ export function renderLlmsSummary() {
     `- ${absolute("/preguntas-frecuentes")} — Respuestas sobre alcance, tiempos y entregables.`,
     `- ${absolute("/recursos")} — Guías y referencias citables.`,
     `- ${absolute("/contacto")} — Contacto corporativo en Ciudad de México.`,
+    `- ${absolute("/en/")} — Complete English-language site for international buyers.`,
     "",
     `Contacto: ${contactDetails.email} · ${contactDetails.telephone} · ${contactDetails.city}`,
   ].join("\n");
@@ -77,6 +85,32 @@ export function renderLlmsFull() {
     ].join("\n\n"),
   );
 
+  const englishPages = englishServices.map((page) =>
+    [
+      `# ${page.title}`,
+      `URL: ${absolute(page.path)}`,
+      page.description,
+      ...page.answerFirst,
+      renderSections(page.sections),
+      "## Frequently asked questions",
+      renderFaqs(page.faqs),
+    ].join("\n\n"),
+  );
+
+  const resources = allResources.map((article) =>
+    [
+      `# ${article.title}`,
+      `URL: ${absolute(article.path)}`,
+      article.directAnswer,
+      ...article.outline.map((section) => `## ${section.heading}\n\n${section.guidance}`),
+      `## ${article.table.caption}`,
+      `| ${article.table.columns.join(" | ")} |`,
+      `| ${article.table.columns.map(() => "---").join(" | ")} |`,
+      ...article.table.rows.map((row) => `| ${row.join(" | ")} |`),
+      renderFaqs(article.faqs),
+    ].join("\n\n"),
+  );
+
   return [
     renderLlmsSummary(),
     "---",
@@ -98,5 +132,15 @@ export function renderLlmsFull() {
     renderFaqs(spanishFaqs),
     ...services.flatMap((item) => ["---", item]),
     ...cases.flatMap((item) => ["---", item]),
+    "---",
+    `# ${englishMethodology.title}`,
+    `URL: ${absolute(englishMethodology.path)}`,
+    ...englishMethodology.answerFirst,
+    renderSections(englishMethodology.sections),
+    "# General English FAQ",
+    renderFaqs(englishFaqs),
+    ...englishPages.flatMap((item) => ["---", item]),
+    ...englishCases.map((page) => `# ${page.title}\n\nURL: ${absolute(page.path)}\n\n${page.summary}\n\n${renderSections(page.sections)}`),
+    ...resources.flatMap((item) => ["---", item]),
   ].join("\n\n");
 }
