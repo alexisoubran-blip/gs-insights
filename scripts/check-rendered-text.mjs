@@ -3,15 +3,15 @@ import { readFile } from "node:fs/promises";
 const target = process.argv[2] ?? "http://localhost:3000";
 
 const expectedOnce = [
-  "Decide con mayor certeza.",
+  "Investigación de mercados para marcas que operan en México y LATAM.",
   "Investigación de mercados para reducir riesgos antes de invertir.",
-  "El rigor y las metodologías de una gran consultora, con especialistas senior involucrados de principio a fin.",
+  "Sin equipos junior: el mismo investigador que diseña el estudio te presenta la recomendación.",
   "Experiencia senior. Trato directo.",
   "El mismo equipo define el estudio, supervisa la investigación, analiza los resultados y presenta la recomendación.",
   "Hacemos la investigación.",
-  "Te ayudamos a decidir.",
-  "Experiencia aplicada a decisiones reales.",
-  "Estudios diseñados alrededor de tu decisión.",
+  "Agenda 30 minutos para revisar tu reto de investigación.",
+  "Experiencia aplicada a retos reales.",
+  "Segmentación, brand health, test de concepto y pricing.",
   "Lo que necesitas saber",
   "Antes de invertir, comprueba qué está viendo el mercado.",
 ];
