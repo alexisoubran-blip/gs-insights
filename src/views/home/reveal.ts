@@ -3,50 +3,30 @@ import { easings } from "@react-spring/web";
 /**
  * Shared reveal presets for the section copy.
  *
- * **Headings** and **body copy** animate per-letter / per-word with
- * `spring-text-engine`; **non-text units** (buttons, labels, lists) and the
- * **photo** use the `Inview` spring wrapper.
+ * **Headings** and **body copy** animate as complete semantic nodes through
+ * `Inview`. Keeping one text node prevents animated duplicates from leaking
+ * into crawler extraction and the accessibility tree. **Non-text units**
+ * (buttons, labels, lists) and the **photo** use the same spring wrapper.
  *
- * ## Keeping the layout put
- * `TextEngine` lays its container out as `display:flex; flex-wrap:wrap` with a
- * `column-gap` between words, AND hardcodes `position: relative` on it. Three
- * things must be handled at every call site or the copy shifts:
- * 1. **Positioning** — the inline `position: relative` beats a Tailwind `absolute`
- *    class, so an absolutely-positioned engine falls back into flow (left-anchored
- *    copy survives by coincidence; `right-0` / centered copy breaks). Pass
- *    `style={{ position: "absolute" }}` — the engine spreads `...style` last, so it
- *    wins. (In-flow copy like the FAQ title needs nothing.)
- * 2. **Alignment** — flex ignores `text-align`. Centered copy needs
- *    `justify-center`, right-aligned copy needs `justify-end` (left is the flex
- *    default). Keep the `text-*` class too, for the hidden SEO copy.
- * 3. **Word spacing** — `columnGap` (below) replaces the natural space; ~0.25em
- *    matches the font's space glyph. Tune here if spacing looks off.
- *
- * Letters carry **no transform** (opacity + blur only), and words translate via
- * the inner span — never the container — so neither disturbs the box or a
- * `-translate-x-1/2` centering. Spread a preset into `<TextEngine>` / `<Inview>`;
- * set `mode`, `enabled`, `immediateOut`, `delayIn`, `tag`, `className` per site.
+ * Spread a preset into `<Inview>`; set `mode`, `enabled`, `immediateOut`,
+ * `delayIn`, `tag`, `className`, and explicit positioning per call site.
  */
 
 const SOFT = { duration: 1000, easing: easings.easeOutQuint };
 const SOFT_SLOW = { duration: 1200, easing: easings.easeOutQuint };
 
-/** Heading — per-letter, left→right, blur + opacity (no transform → box stays). */
-export const LETTER_REVEAL = {
-  letterIn: { opacity: 1, filter: "blur(0px)" },
-  letterOut: { opacity: 0, filter: "blur(12px)" },
-  letterStagger: 26,
-  letterConfig: SOFT,
-  columnGap: 0.25,
+/** Heading — one semantic node, blur + opacity (no transform → box stays). */
+export const HEADING_REVEAL = {
+  from: { opacity: 0, filter: "blur(12px)" },
+  to: { opacity: 1, filter: "blur(0px)" },
+  config: SOFT,
 } as const;
 
-/** Body / sub-head — per-word, bottom→up, blur + opacity. */
-export const WORD_REVEAL = {
-  wordIn: { y: 0, opacity: 1, filter: "blur(0px)" },
-  wordOut: { y: 16, opacity: 0, filter: "blur(8px)" },
-  wordStagger: 42,
-  wordConfig: SOFT_SLOW,
-  columnGap: 0.25,
+/** Body / sub-head — one semantic node, bottom→up, blur + opacity. */
+export const COPY_REVEAL = {
+  from: { y: 16, opacity: 0, filter: "blur(8px)" },
+  to: { y: 0, opacity: 1, filter: "blur(0px)" },
+  config: SOFT_SLOW,
 } as const;
 
 /** Non-text unit (button, tag row, label) — fade + blur + rise, via `Inview`. */

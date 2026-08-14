@@ -1,18 +1,14 @@
 import type { MetadataRoute } from "next";
 
+import { spanishRoutes } from "@/data/routes";
 import { siteConfig } from "@/lib/site";
 
-/**
- * Generates `/sitemap.xml`. Currently lists only the home route — add an entry
- * per public route as the site grows (ideally derived from a routes manifest).
- */
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: siteConfig.url,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-  ];
+  return spanishRoutes.map(({ path, lastModified }) => ({
+    url: new URL(path, siteConfig.url).toString(),
+    lastModified,
+    changeFrequency:
+      path === "/" || path.startsWith("/servicios/") ? "monthly" : "yearly",
+    priority: path === "/" ? 1 : path.startsWith("/servicios/") ? 0.9 : 0.7,
+  }));
 }

@@ -42,10 +42,9 @@ export const useSceneClock = (): SpringValue<number> => {
  *
  * `opacity: 0` hides a layer but does **not** retire it: the browser still
  * rasterises it every frame. That is expensive here in a way it usually is not —
- * the copy is split into per-letter spans by `spring-text-engine`, each one
- * carrying an animated `filter: blur()`, composited over a full-screen WebGL
- * canvas. Two of the three overlays are invisible at any given moment, so most
- * of that work is for nothing.
+ * the copy carries animated `filter: blur()` values, composited over a
+ * full-screen WebGL canvas. Two of the three overlays are invisible at any
+ * given moment, so most of that work is for nothing.
  *
  * `visibility: hidden` takes the subtree out of paint entirely while leaving it
  * mounted and laid out, so the springs and the text engine keep their state and

@@ -3185,13 +3185,6 @@ source-map-js@^1.0.2, source-map-js@^1.2.1:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.1.tgz#1ce5650fddd87abc099eda37dcff024c2667ae46"
   integrity sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==
 
-spring-text-engine@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/spring-text-engine/-/spring-text-engine-0.1.5.tgz#bec0a667dc1f637174566bdeb755732bcba1a2d1"
-  integrity sha512-1zNFDOfM0J2+QBp+vebb1fplSSrV/KHV3xZscu9u4EfQmTDWEUxaHdkuGhSe7WTfad8JyYgPRzMwP29Fd72O9Q==
-  dependencies:
-    resize-observer-polyfill "^1.5.1"
-
 stable-hash@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/stable-hash/-/stable-hash-0.0.5.tgz#94e8837aaeac5b4d0f631d2972adef2924b40269"

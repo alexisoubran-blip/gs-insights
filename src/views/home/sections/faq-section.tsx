@@ -2,13 +2,12 @@
 
 import { animated, config, useInView, useSpring } from "@react-spring/web";
 import { useId, useLayoutEffect, useRef, useState } from "react";
-import TextEngine from "spring-text-engine";
 
 import { Inview } from "@/components/animation/springs/in-view";
 import { PressableButton } from "@/components/ui/pressable";
 import type { FaqCopy } from "@/data/mocks/home";
 import { CARD_ROW } from "@/lib/springs/interaction";
-import { CARD_REVEAL, LETTER_REVEAL, UNIT_REVEAL } from "../reveal";
+import { CARD_REVEAL, HEADING_REVEAL, UNIT_REVEAL } from "../reveal";
 
 interface FaqItemProps {
   question: string;
@@ -158,15 +157,15 @@ export const FaqSection = ({ copy }: FaqSectionProps) => {
       >
         <FaqAsterisk />
 
-        <TextEngine
+        <Inview
           tag="h2"
           mode="always"
           immediateOut={false}
-          {...LETTER_REVEAL}
+          {...HEADING_REVEAL}
           className="mt-[1.111vw] justify-center text-center font-general text-[5.556vw] leading-[0.9] font-light max-lg:mt-[1rem] max-lg:text-[2.75rem] max-sm:text-[2.125rem]"
         >
           {copy.title}
-        </TextEngine>
+        </Inview>
 
         <Inview
           tag="ul"

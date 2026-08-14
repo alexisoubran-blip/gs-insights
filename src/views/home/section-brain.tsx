@@ -2,12 +2,11 @@
 
 import { animated } from "@react-spring/web";
 import { useEffect, useMemo, useState } from "react";
-import TextEngine from "spring-text-engine";
 
 import { Inview } from "@/components/animation/springs/in-view";
 import { sceneTimeline } from "@/lib/scene/timeline";
 import { hiddenWhenClear, smoothstep, useSceneClock } from "./overlay";
-import { LETTER_REVEAL, UNIT_REVEAL, WORD_REVEAL } from "./reveal";
+import { COPY_REVEAL, HEADING_REVEAL, UNIT_REVEAL } from "./reveal";
 import { SendRequest } from "./send-request";
 
 /**
@@ -63,56 +62,56 @@ export const SectionBrain = () => {
       className="pointer-events-none fixed inset-0 z-10 text-white max-lg:flex max-lg:flex-col max-lg:justify-center max-lg:gap-[1.25rem] max-lg:px-[1.5rem] max-lg:py-[6.5rem] max-sm:px-[1.25rem]"
       style={{ opacity, visibility }}
     >
-      <TextEngine
+      <Inview
         tag="h2"
         mode="always"
         enabled={active}
         immediateOut={false}
-        {...LETTER_REVEAL}
+        {...HEADING_REVEAL}
         style={{ position: "absolute" }}
         className="absolute top-[9.028vw] left-[1.667vw] w-[44vw] font-general text-[5.2vw] leading-[0.92] font-light max-lg:static! max-lg:w-full max-lg:text-[2.75rem] max-sm:text-[2rem]"
       >
         {TITLE_LEFT}
-      </TextEngine>
+      </Inview>
 
-      <TextEngine
+      <Inview
         tag="p"
         mode="always"
         enabled={active}
         immediateOut={false}
         delayIn={200}
-        {...WORD_REVEAL}
+        {...COPY_REVEAL}
         style={{ position: "absolute" }}
         className="absolute top-[calc(50%+2.361vw)] left-[1.667vw] w-[26.597vw] font-tag text-[1.111vw] leading-[1.2] uppercase max-lg:static! max-lg:w-full max-lg:text-[0.8125rem] max-sm:text-[0.75rem]"
       >
         {TAGLINE_LEFT}
-      </TextEngine>
+      </Inview>
 
-      <TextEngine
+      <Inview
         tag="p"
         mode="always"
         enabled={active}
         immediateOut={false}
         delayIn={260}
-        {...WORD_REVEAL}
+        {...COPY_REVEAL}
         style={{ position: "absolute" }}
         className="absolute top-[calc(50%+2.361vw)] right-[1.667vw] w-[14.583vw] justify-end text-right font-tag text-[1.111vw] leading-[1.2] uppercase max-lg:static! max-lg:w-full max-lg:justify-start max-lg:text-left max-lg:text-[0.8125rem] max-sm:text-[0.75rem]"
       >
         {TAGLINE_RIGHT}
-      </TextEngine>
+      </Inview>
 
-      <TextEngine
+      <Inview
         tag="p"
         mode="always"
         enabled={active}
         immediateOut={false}
         delayIn={120}
-        {...LETTER_REVEAL}
+        {...HEADING_REVEAL}
         style={{ position: "absolute" }}
         className="absolute right-[1.667vw] bottom-[1.667vw] w-[48vw] justify-end text-right font-general text-[5.2vw] leading-[0.92] font-light max-lg:static! max-lg:w-full max-lg:justify-start max-lg:text-left max-lg:text-[2.75rem] max-sm:text-[2rem]"
       >
         {TITLE_RIGHT}
-      </TextEngine>
+      </Inview>
 
       <Inview
         mode="always"
