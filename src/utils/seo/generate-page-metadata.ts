@@ -24,6 +24,7 @@ interface MetadataProps {
   twitterHandle?: string;
   author?: string;
   siteName?: string;
+  languages?: Record<string, string>;
 }
 
 export function generateMetadata({
@@ -34,6 +35,7 @@ export function generateMetadata({
   twitterHandle = siteConfig.twitterHandle,
   author = siteConfig.author,
   siteName = siteConfig.name,
+  languages,
 }: MetadataProps = {}): Metadata {
   return {
     // Resolves every relative URL below to an absolute one.
@@ -45,6 +47,7 @@ export function generateMetadata({
     publisher: author,
     alternates: {
       canonical: url,
+      languages,
     },
     openGraph: {
       title,

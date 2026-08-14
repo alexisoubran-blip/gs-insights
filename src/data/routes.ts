@@ -27,3 +27,26 @@ export const spanishRoutes = [
   { path: "/preguntas-frecuentes", lastModified: "2026-08-14" },
   { path: "/recursos", lastModified: "2026-08-14" },
 ] as const;
+
+export const englishRoutes = [
+  "/en/",
+  "/en/services/market-segmentation",
+  "/en/services/brand-tracking",
+  "/en/services/concept-testing",
+  "/en/services/market-research-mexico",
+  "/en/services/pricing-and-price-sensitivity",
+  "/en/methodology",
+  "/en/case-studies",
+  "/en/case-studies/tajin-international-opportunity",
+  "/en/case-studies/fedex-regional-brand-tracking",
+  "/en/case-studies/takis-consumption-culture",
+  "/en/case-studies/sharkninja-reach-activation",
+  "/en/case-studies/bitso-conversion-optimization",
+  "/en/about",
+  "/en/contact",
+  "/en/frequently-asked-questions",
+  "/en/resources",
+].map((path) => ({ path, lastModified: "2026-08-14" })) as ReadonlyArray<{
+  path: string;
+  lastModified: string;
+}>;
